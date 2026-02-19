@@ -62,7 +62,6 @@ nav a:hover {
 .logo {
     max-width: 280px;
     height: auto;
-    margin-bottom: 25px;
 }
 
 .logo-small {
@@ -83,7 +82,7 @@ h3 {
     text-transform: uppercase;
     letter-spacing: 5px;
     color: var(--accent-color);
-    margin-top: 10px;
+        margin-top: 0px;
 }
 
 /* --- Form Elements --- */
