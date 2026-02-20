@@ -1,8 +1,8 @@
 /* --- Global Reset & Variables --- */
 :root {
-    --bg-color: #fffdd0;      /* Deep Navy Night */
+    --bg-color: #fff7f2;      /* Deep Navy Night */
     --accent-color: #e2b808;  /* Champagne Gold */
-    --text-light: #474848;
+    --text-light: #74716f;
     --input-bg: rgba(255, 255, 255, 0.05);
     --border-color: rgba(255, 255, 255, 0.1);
 }
@@ -60,7 +60,7 @@ nav a:hover {
 
 /* --- Typography & Branding --- */
 .logo {
-    max-width: 280px;
+    max-width: 480px;
     height: auto;
 }
 
@@ -81,7 +81,7 @@ h3 {
     font-weight: 300;
     text-transform: uppercase;
     letter-spacing: 5px;
-    color: var(--accent-color);
+    color: var(--text-light);
         margin-top: 0px;
 }
 
