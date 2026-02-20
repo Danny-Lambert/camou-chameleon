@@ -27,7 +27,12 @@
 
                 <div class="form-group">
                     <input type="email" name="email" placeholder="Email Address" required>
-                    <input type="date" name="wedding_date" placeholder="Wedding Date (if known)">
+                    <!-- <input type="date" name="wedding_date" placeholder="Wedding Date (if known)"> -->
+                    <input 
+  type="text" 
+  placeholder="Wedding date (if known)" 
+  onfocus="(this.type='date')" 
+  onblur="if(!this.value)this.type='text'">
                 </div>
 
                 <input type="text" name="venue" placeholder="Wedding Venue (if known)" required>

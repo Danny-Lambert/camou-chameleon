@@ -107,10 +107,19 @@ textarea {
     padding: 15px;
     background: var(--input-bg);
     border: 1px solid var(--text-light);
-    color: #fff;
+    color: var(--text-light);
     border-radius: 4px;
     font-family: 'Montserrat', sans-serif;
     font-size: 0.95rem;
+}
+input[type="date"]::before {
+	content: attr("Date of Wedding (if known)");
+	width: 100%;
+}
+
+input[type="date"]:focus::before,
+input[type="date"]:valid::before {
+	display: none;
 }
 
 input:focus, textarea:focus {
