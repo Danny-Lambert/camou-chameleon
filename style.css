@@ -76,7 +76,7 @@ nav a:hover {
 h2 {
     font-size: 2rem;
     margin-bottom: 30px;
-    font-weight: 400;
+    font-weight: 600;
     letter-spacing: 1px;
 }
 h4 {
@@ -89,6 +89,8 @@ h3 {
     text-transform: uppercase;
     color: var(--text-light);
         margin-top: 0px;
+            font-weight: 400;
+
 }
 
 /* --- Form Elements --- */
