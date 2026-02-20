@@ -62,6 +62,7 @@ nav a:hover {
 .logo {
     max-width: 370px;
     height: auto;
+        width: -webkit-fill-available;
 }
 
 .logo-small {
