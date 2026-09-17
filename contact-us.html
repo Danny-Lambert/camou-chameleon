@@ -25,17 +25,20 @@
             <form action="https://formspree.io/f/mlgwwgqz" method="POST" id="contact-form">
                 <div class="form-group">
                     <input type="text" name="full_name" placeholder="Full Name" required>
-                    <input type="tel" name="phone" placeholder="Phone Number" required>
+                    <input type="tel" name="phone" placeholder="Phone Number" inputmode="numeric" pattern="[0-9]{7,}" title="Please enter a valid phone number using digits only" required>
                 </div>
 
                 <div class="form-group">
                     <input type="email" name="email" placeholder="Email Address" required>
-                    <!-- <input type="date" name="wedding_date" placeholder="Wedding Date (if known)"> -->
-                    <input 
-                        type="text" 
-                        placeholder="Wedding Date (if known)" 
-                        onfocus="(this.type='date')" 
-                        onblur="if(!this.value)this.type='text'">
+                    <div class="date-field">
+                        <label for="wedding-date">Wedding date</label>
+                        <input type="date" id="wedding-date" name="wedding_date" required>
+                        <label class="checkbox-label date-unknown">
+                            <input type="checkbox" id="date-unknown" name="date_unknown">
+                            I don't know the date yet
+                        </label>
+                        <input type="hidden" id="wedding-date-unknown" name="wedding_date" value="I don't know the date yet" disabled>
+                    </div>
                 </div>
 
                 <input type="text" name="venue" placeholder="Wedding Venue (if known)">
@@ -58,7 +61,7 @@
 
                 <button type="submit" class="btn">Request Quote</button>
             </form>
-            <div id="form-status"></div>
+            <div id="form-status" role="status" aria-live="polite"></div>
         </div>
     </section>
     <script src="main.js"></script>

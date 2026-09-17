@@ -125,6 +125,28 @@ input[type="date"]::before {
 	width: 100%;
 }
 
+.date-field {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.date-field > label:first-child {
+    color: var(--text-light);
+    font-size: 0.85rem;
+}
+
+.date-unknown {
+    align-items: center;
+    display: flex;
+    gap: 8px;
+    margin-top: 2px;
+}
+
+.date-unknown input {
+    width: auto;
+}
+
 input[type="date"]:focus::before,
 input[type="date"]:valid::before {
 	display: none;
@@ -214,6 +236,10 @@ input::placeholder{
     margin-top: 20px;
     font-weight: 600;
     text-align: center;
+}
+
+#form-status.error {
+    color: #ff8f8f;
 }
 
 /* --- Mobile Responsiveness --- */
