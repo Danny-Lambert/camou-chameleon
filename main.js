@@ -41,11 +41,13 @@ document.addEventListener("DOMContentLoaded", function() {
 
             status.textContent = message;
             status.className = "error";
+            status.style.color = "";
         }, true);
 
         form.addEventListener("input", function() {
             status.textContent = "";
             status.className = "";
+            status.style.color = "";
         });
 
         form.addEventListener("reset", function() {
@@ -60,24 +62,33 @@ document.addEventListener("DOMContentLoaded", function() {
             event.preventDefault();
             const data = new FormData(event.target);
             
-            // Standard fetch call for Formspree
-            fetch(event.target.action, {
-                method: form.method,
-                body: data,
-                headers: {
-                    'Accept': 'application/json'
-                }
-            }).then(response => {
+            try {
+                const response = await fetch(event.target.action, {
+                    method: form.method,
+                    body: data,
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                });
+                const result = await response.json().catch(() => ({}));
+
                 if (response.ok) {
-                    status.innerHTML = "Thanks! We'll be in touch soon.";
+                    status.textContent = "Thanks! We'll be in touch soon.";
                     status.style.color = "#e2b808";
                     form.reset();
                 } else {
-                    status.innerHTML = "Oops! There was a problem submitting your form.";
+                    const errors = result.errors || [];
+                    status.textContent = errors.length
+                        ? errors.map(error => error.message).join(" ")
+                        : "Please check your email address and try again.";
+                    status.className = "error";
+                    status.style.color = "";
                 }
-            }).catch(error => {
-                status.innerHTML = "Oops! There was a problem submitting your form.";
-            });
+            } catch (error) {
+                status.textContent = "We couldn't submit the form. Please check your details and try again.";
+                status.className = "error";
+                status.style.color = "";
+            }
         });
     }
 });
